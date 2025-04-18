@@ -1,18 +1,58 @@
-Stablecoin Project
-This repository contains a custom implementation of a stablecoin using the Foundry framework for smart contract development.
+# 🪙 KAT Stablecoin Engine (Decentralized Stablecoin Protocol)
 
-🚀 Overview
-This project demonstrates the development of a basic yet robust stablecoin system, simulating a fiat-pegged token on Ethereum. It includes:
-1=>ERC20-based stablecoin contract
-2=>Minting and burning mechanisms
-3=>Ownership and access control
-4=>Unit and integration testing using Foundry
+A decentralized and overcollateralized stablecoin protocol built with Solidity and Foundry. Inspired by protocols like MakerDAO’s DAI, this implementation features core mechanics like collateral deposits, minting, burning, liquidation, and price feed integration via Chainlink oracles.
 
-🛠 Technologies Used
-Solidity
-Foundry (Forge & Cast)
-OpenZeppelin Contracts (optional for reusability and security)
-chainlink(for real time pricefeed for eth)
+---
+
+## ⚙️ Features
+
+- ✅ **Collateralized Minting**: Deposit whitelisted ERC20 tokens like WETH or WBTC to mint KAT (stablecoin).
+- 🔥 **Burn & Redeem**: Burn KAT tokens to reclaim your collateral.
+- 🧯 **Liquidations**: Secure the protocol by liquidating unhealthy positions and claiming collateral with a bonus.
+- 📊 **Price Feeds**: Chainlink price oracles ensure accurate USD values for tokens.
+- 🔒 **Safety Checks**: Health factor enforcement to ensure positions are always sufficiently collateralized.
+- 🧪 **Test Suite**: Unit tests using Foundry covering edge cases, errors, and core logic.
+
+---
+
+## 🛠️ Architecture
+
+### Core Contracts
+
+| Contract         | Responsibility                            |
+|------------------|-------------------------------------------|
+| `KATEngine`      | Manages collateral, minting, burning, liquidations |
+| `DecentralizedStableCoin` | ERC20 token representing the stablecoin (KAT) |
+| `HelperConfig`   | Network-specific configuration and price feeds |
+| `DeployKAT`      | Deployment script using Foundry scripting tools |
+
+---
+
+## 🔐 Security Mechanisms
+
+- **NonReentrant Modifier** to protect sensitive logic from reentrancy.
+- **Health Factor** logic to ensure overcollateralization.
+- **Access Control** to prevent unauthorized minting.
+- **Events** for transparent on-chain activity tracking.
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- [Foundry](https://book.getfoundry.sh/getting-started/installation) installed
+- Node.js & npm (optional for scripting)
+- Git, a code editor (VSCode recommended)
+
+### Installation
+
+```bash
+git clone https://github.com/yourusername/KAT-Stablecoin.git
+cd KAT-Stablecoin
+forge install
+forge build
+
 
 
 #catorgaized of stable coin
